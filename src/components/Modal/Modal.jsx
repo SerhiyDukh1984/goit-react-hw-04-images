@@ -1,32 +1,32 @@
-import { useEffect } from "react";
-import PropTypes from "prop-types";
-import s from "./Modal.module.css";
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import s from './Modal.module.css';
 
 const Modal = ({ largeImageURL, tags, togleModal }) => {
-  const onBackdropClick = (e) => {
+  const onBackdropClick = e => {
     e.target === e.currentTarget && togleModal();
   };
 
-  const onBtnClickEscape = (e) => {
-    if (e.code === "Escape") {
+  const onBtnClickEscape = e => {
+    if (e.code === 'Escape') {
       togleModal();
     }
   };
 
   useEffect(() => {
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
 
-    window.addEventListener("keydown", onBtnClickEscape);
+    window.addEventListener('keydown', onBtnClickEscape);
 
     return () => {
-      const body = document.querySelector("body");
-      body.style.overflow = "auto";
+      const body = document.querySelector('body');
+      body.style.overflow = 'auto';
 
-      window.removeEventListener("keydown", onBtnClickEscape);
+      window.removeEventListener('keydown', onBtnClickEscape);
     };
     // eslint-disable-next-line
-  }, [onBtnClickEscape()]);
+  }, []);
 
   return (
     <div className={s.overlay} onClick={onBackdropClick}>
