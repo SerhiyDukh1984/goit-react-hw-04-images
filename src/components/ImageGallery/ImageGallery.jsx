@@ -14,7 +14,7 @@ export default function ImageGallery({ images, onImageClick, page }) {
   return (
     <ul className={s.list}>
       {images.map((image, idx) => (
-        <li ref={(page - 2) * 12 + 1 === idx ? itemRef : null} key={image.id}>
+        <li ref={(page - 1) * 12 + 1 === idx ? itemRef : null} key={image.id}>
           <ImageGalleryItem image={image} onImageClick={onImageClick} />
         </li>
       ))}

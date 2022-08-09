@@ -1,28 +1,26 @@
-import PropTypes from "prop-types";
-import { useState } from "react";
-import s from "./Searchbar.module.css";
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import s from './Searchbar.module.css';
 
 const Searchbar = ({ onSubmit }) => {
-  const [searchInput, setSearchInput] = useState("");
-  const [page, setPage] = useState(1);
+  const [searchInput, setSearchInput] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { value } = e.target;
 
     setSearchInput(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    if (searchInput.trim() === "") {
-      alert("what are you want?");
+    if (searchInput.trim() === '') {
+      alert('what are you want?');
       return;
     }
 
-    onSubmit(searchInput, page);
-    setSearchInput("");
-    setPage(1);
+    onSubmit(searchInput);
+    setSearchInput('');
   };
 
   return (
